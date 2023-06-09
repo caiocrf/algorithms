@@ -1,21 +1,23 @@
-def sort(array, low, high):
-    if low < high:
-        index = division(array, low, high)
-        sort(array, low, index - 1)
-        sort(array, index + 1, high)
-
+  
 def division(array, low, high):
-    pivot_index = low
-    pivot_value = array[high]
+        pivot_index = low
+        pivot_value = array[high]
 
-    for j in range(low, high):
-        if array[j] <= pivot_value:
+        for j in range(low, high):
+          if array[j] <= pivot_value:
             array[pivot_index], array[j] = array[j], array[pivot_index]
             pivot_index += 1
 
-    array[pivot_index], array[high] = array[high], array[pivot_index]
+        array[pivot_index], array[high] = array[high], array[pivot_index]
 
-    return pivot_index
+        return pivot_index
+
+def sort(array, low, high):
+    if low < high:
+     index = division(array, low, high)
+     sort(array, low, index - 1)
+     sort(array, index + 1, high)
+
 
 def is_anagram(first_string, second_string):
     first_str = list(first_string.lower())
